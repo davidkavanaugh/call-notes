@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import ContactPage from './ContactPage';
+import Questions from './Questions';
+
 class Editor extends Component {
     render() { 
         return ( 
             <div className='editor'>
-                <ContactPage />
+                <Questions />
+
             </div>
          );
     }
