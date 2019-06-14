@@ -20,7 +20,7 @@ let QuestionForm = props => {
 
 QuestionForm = reduxForm({
   // a unique name for the form
-  form: 'contact'
+  form: 'questions'
 })(QuestionForm)
 
 export default QuestionForm

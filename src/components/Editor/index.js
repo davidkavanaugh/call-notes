@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
-import Questions from './Questions';
+import React from 'react'
+import QuestionForm from './QuestionForm'
+import AllQuestions from './AllQuestions'
+import { connect } from 'react-redux';
 
-class Editor extends Component {
-    render() { 
-        return ( 
-            <div className='editor'>
-                <Questions />
+class Editor extends React.Component {
+  
+  submit = values => {
+    this.props.dispatch({
+      type: 'ADD_QUESTION',
+      values
+    });
+  }
 
-            </div>
-         );
-    }
+  render() {
+    return (
+      <div>
+        <QuestionForm onSubmit={this.submit} />
+        <AllQuestions />
+      </div>
+    );
+  }
 }
- 
-export default Editor;
+
+export default connect()(Editor)
