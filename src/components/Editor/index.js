@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import ContactPage from './ContactPage';
 class Editor extends Component {
     render() { 
         return ( 
-            <div>
-                Editor Works
+            <div className='editor'>
+                <ContactPage />
             </div>
          );
     }
