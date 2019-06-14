@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
+import Home from './components/Home';
+import Editor from './components/Editor';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(rootReducer);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <Provider store={store}>
+        <Router>
+            <Link to='/'>Home</Link>
+            <Link to='/editor'>Editor</Link>
+
+            <Route path='/' exact component={Home} />
+            <Route path='/editor/' component={Editor} />
+        </Router>
+    </Provider>, document.getElementById('root'));
