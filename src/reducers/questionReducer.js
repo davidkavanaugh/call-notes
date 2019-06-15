@@ -1,7 +1,7 @@
-export default (state = {questions:[], answers: []}, action) => {
+export default (state = [], action) => {
     switch(action.type) {
         case 'ADD_QUESTION':
-            return {...state, questions: action.values};
+            return state.concat({...state, questions: action.values});
         default:
             return state;
     }

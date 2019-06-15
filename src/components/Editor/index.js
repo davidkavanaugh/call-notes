@@ -22,4 +22,10 @@ class Editor extends React.Component {
   }
 }
 
-export default connect()(Editor)
+const mapStateToProps =(state) => {
+  return {
+      questions: state.questions
+  }
+}
+
+export default connect(mapStateToProps)(Editor)
