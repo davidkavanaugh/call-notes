@@ -23,7 +23,7 @@ e.preventDefault();
 render() {
 return (
 <div className="question-container">
-  <h1 className="question_heading">Create Post</h1>
+  <h2 className="question_heading">Ask a Question</h2>
   <form className="form" onSubmit={this.handleSubmit} >
    <input required type="text" ref={(input) => this.getQuery = input}
    placeholder="Ask a Question." /><br /><br />

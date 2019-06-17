@@ -7,7 +7,7 @@ class AllQuestions extends Component {
 render() {
 return (
 <div>
-  <h1 className="question_heading">All Questions</h1>
+  <h2 className="question_heading">All Questions</h2>
   {this.props.questions.map((question) => (
         <div key={question.id}>
             {question.editing ? 
