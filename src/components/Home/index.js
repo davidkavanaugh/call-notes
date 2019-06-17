@@ -3,12 +3,29 @@ import Form from './Form';
 import { connect } from 'react-redux';
 
 class Home extends Component {
+    selections = [];
+
     submit = values => {
-        console.log(values);
+
+      for (let [key, value] of Object.entries(values)) {
+        this.selections.push(key + ': ' + value)
       }
+      console.log(this.selections);
+      this.selections = [];
+    };
+
+    handleChange(e) {
+      e.preventDefault();
+    };
+
     render() { 
         return ( 
-                <Form onSubmit={this.submit} questions={this.props.questions} />
+            <div>
+                <Form 
+                  onSubmit={this.submit} 
+                  questions={this.props.questions} 
+                />
+            </div>
          );
     }
 }
