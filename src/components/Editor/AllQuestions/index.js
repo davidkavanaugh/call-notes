@@ -1,25 +1,29 @@
-import React, { Component } from 'react'
-// import Answer from './Answer';
-// import Question from './Question';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Question from './Question';
+import EditComponent from '../EditComponent';
 
-class AllQuestions extends Component {   
-    render() { 
-        
-        for (let [key, value] of Object.entries(this.props.questions)) {
-            console.log(`${key}:  `, value.questions);
-          }
-
-        return ( 
-            <div>
-                
-            </div>
-         );
-    }
+class AllQuestions extends Component {
+render() {
+return (
+<div>
+  <h1 className="question_heading">All Questions</h1>
+  {this.props.questions.map((question) => (
+        <div key={question.id}>
+            {question.editing ? 
+                <EditComponent question={question} key={question.id} /> : 
+                <Question question={question} key={question.id} />
+            }
+        </div>
+    ))}
+</div>
+);
+}
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+return {
     questions: state.questions
-});
-
+}
+}
 export default connect(mapStateToProps)(AllQuestions);
