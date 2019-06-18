@@ -5,7 +5,7 @@ import Question from './Question';
 const Form = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="home-form">
     <div>
         {props.questions.map((question) => (
             <div key={question.id}>

@@ -15,8 +15,9 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <div className='navbar'>
-                <Link to='/'>Home</Link>
-                <Link to='/editor'>Editor</Link>
+                <Link className="navlink" to='/'>Home</Link>
+                <h2>Call Notes</h2>
+                <Link className="navlink" to='/editor'>Editor</Link>
             </div>
             
             <Route path='/' exact component={Home} />
