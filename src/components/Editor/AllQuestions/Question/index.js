@@ -7,9 +7,9 @@ render() {
 return (
 <div className="question">
   <h3 className="question_query">{this.props.question.query}</h3>
-  <ul>
+  <ul className='answerList'>
     {this.props.question.answer.split(',').map((answer) => (
-      <li key={answer}>{answer}</li>
+      <li className='answerListItem' key={answer}>{answer}</li>
     ))}
   </ul>
   <div className="control-buttons">

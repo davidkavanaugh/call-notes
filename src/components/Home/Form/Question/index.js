@@ -6,7 +6,7 @@ render() {
 return (
     <div className="home_question">
       <label className="form-question">{this.props.question.query}</label>
-      <div>
+      <div className="home_answer">
           <Field name={this.props.question.query} component="select">
             <option />
             {this.props.question.answer.split(',').map((answer) => (
@@ -14,8 +14,9 @@ return (
             ))}
           </Field>
       </div>
-  
-  <Field name={this.props.question.query + ' (OTHER_ANSWER)'} placeholder='other...' component="textarea" />
+      <div className="home_question_textbox">
+        <Field name={this.props.question.query + ' (OTHER_ANSWER)'} placeholder='other...' component="textarea" />
+      </div>
 </div>
 );
 }

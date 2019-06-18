@@ -1,12 +1,29 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import Question from './Question';
+import Snackbar from '@material-ui/core/Snackbar';
+
+
 
 const Form = (props) => {
+  
   const { handleSubmit, pristine, reset, submitting } = props
+  const [open, setOpen] = React.useState(false);
+  
+  const handleClick = () => {
+    setOpen(true);
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  }
   return (
     <form onSubmit={handleSubmit} className="home-form">
-    <div>
+    <div className="home-question-box">
         {props.questions.map((question) => (
             <div key={question.id}>
                 {
@@ -15,19 +32,31 @@ const Form = (props) => {
             </div>
         ))}
       </div>
-
-      <div>
-        <label className="additional_notes">Additional Notes</label>
+      <div className="home_additional-notes">
+        <label className="home_additional-notes_field">Additional Notes</label>
         <div>
-          <Field name="additionalNotes" component="textarea" />
+          <Field name="Additional Notes" component="textarea" />
         </div>
       </div>
-      <div>
-        <button type="submit" disabled={pristine || submitting}>
-          Submit
+      <div className="home_buttons">
+        <button type="submit" onClick={handleClick} disabled={pristine || submitting}>
+          Copy
         </button>
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            open={open}
+            autoHideDuration={2000}
+            onClose={handleClose}
+            ContentProps={{
+              'aria-describedby': 'message-id',
+            }}
+            message={<span id="message-id">Copied to Clipboard</span>}
+          />
         <button type="button" disabled={pristine || submitting} onClick={reset}>
-          Clear Values
+          Reset
         </button>
       </div>
     </form>
