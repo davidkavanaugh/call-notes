@@ -27,7 +27,7 @@ return (
   <form className="form" onSubmit={this.handleSubmit} >
    <input required type="text" ref={(input) => this.getQuery = input}
    placeholder="Ask a Question." /><br />
-   <textarea required rows="5" ref={(input) => this.getAnswer = input}
+   <textarea rows="5" ref={(input) => this.getAnswer = input}
    cols="28" placeholder="Separate Answers with Commas." /><br />
    <button>Submit</button>
   </form>
